@@ -1,1 +1,2 @@
 # MongoDB_Event-Resgistration-System
+The Event Registration System is a Java application that registers users for events, storing details like name, event name, and registration date in a MongoDB database. It prevents duplicate registrations by checking if a user is already registered for the same event before adding a new entry. The app connects to MongoDB, takes user input for registration, and displays all current registrations at the end.
