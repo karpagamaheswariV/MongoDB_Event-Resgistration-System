@@ -1,0 +1,223 @@
+show dbs
+admin   40.00 KiB
+config  84.00 KiB
+local   80.00 KiB
+db.test.insert({"Name":"Karpaga","Dept":"CSE","Age":"19"})
+DeprecationWarning: Collection.insert() is deprecated. Use insertOne, insertMany, or bulkWrite.
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67318c225b4a45fcc3e0eb7f')
+  }
+}
+db.test.insert({"Name":"Karpaga","Dept":"CSE","Age":"19"});
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67318c2b5b4a45fcc3e0eb80')
+  }
+}
+
+db.test.insertMany([{"Name":"Mahesh","Dept":"CSE","Age":"20"},{"Name":"Rai","Age":"25","area_of_interest":"EV"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67318d425b4a45fcc3e0eb81'),
+    '1': ObjectId('67318d425b4a45fcc3e0eb82')
+  }
+}
+db.test.find();
+{
+  _id: ObjectId('67318c225b4a45fcc3e0eb7f'),
+  Name: 'Karpaga',
+  Dept: 'CSE',
+  Age: '19'
+}
+{
+  _id: ObjectId('67318c2b5b4a45fcc3e0eb80'),
+  Name: 'Karpaga',
+  Dept: 'CSE',
+  Age: '19'
+}
+{
+  _id: ObjectId('67318d425b4a45fcc3e0eb81'),
+  Name: 'Mahesh',
+  Dept: 'CSE',
+  Age: '20'
+}
+{
+  _id: ObjectId('67318d425b4a45fcc3e0eb82'),
+  Name: 'Rai',
+  Age: '25',
+  area_of_interest: 'EV'
+}
+db.test.find({"Age":{$gt:"20"}});
+{
+  _id: ObjectId('67318d425b4a45fcc3e0eb82'),
+  Name: 'Rai',
+  Age: '25',
+  area_of_interest: 'EV'
+}
+db.test.find({"Age":{$gte:"20"}});
+{
+  _id: ObjectId('67318d425b4a45fcc3e0eb81'),
+  Name: 'Mahesh',
+  Dept: 'CSE',
+  Age: '20'
+}
+{
+  _id: ObjectId('67318d425b4a45fcc3e0eb82'),
+  Name: 'Rai',
+  Age: '25',
+  area_of_interest: 'EV'
+}
+use college;
+switched to db college
+
+db.test.insertMany([{"Name":"Maheswari","Dept":"CSE","Age":"18"},{"Name":"Sammer","Age":"27","Dept":"IT"},{"Name":"Mahi","Dept":"ECE","Age":"23"},{"Name":"Ashi","Dept":"EEE","Age":"26"},{"Name":"Mahesh","Dept":"CSE","Age":"20"},{"Name":"Sandy","Dept":"CSE","Age":"26"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('673191445b4a45fcc3e0eb83'),
+    '1': ObjectId('673191445b4a45fcc3e0eb84'),
+    '2': ObjectId('673191445b4a45fcc3e0eb85'),
+    '3': ObjectId('673191445b4a45fcc3e0eb86'),
+    '4': ObjectId('673191445b4a45fcc3e0eb87'),
+    '5': ObjectId('673191445b4a45fcc3e0eb88')
+  }
+}
+db.test.find({"Age":{$lt:"24"}});
+{
+  _id: ObjectId('673191445b4a45fcc3e0eb83'),
+  Name: 'Maheswari',
+  Dept: 'CSE',
+  Age: '18'
+}
+{
+  _id: ObjectId('673191445b4a45fcc3e0eb85'),
+  Name: 'Mahi',
+  Dept: 'ECE',
+  Age: '23'
+}
+{
+  _id: ObjectId('673191445b4a45fcc3e0eb87'),
+  Name: 'Mahesh',
+  Dept: 'CSE',
+  Age: '20'
+}
+db.employee.insertMany([{"empname":"Karpagam","empage":"24","salary":"25000"},{"empname":"Mohana","empage":"27","salary":"30000"},{"empname":"Mani","empage":"20","salary":"20000"},{"empname":"Rohini","empage":"30","salary":"40000"},{"empname":"Miruna","empage":"25","salary":"25000"}]);
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('67319a4d5b4a45fcc3e0eb89'),
+    '1': ObjectId('67319a4d5b4a45fcc3e0eb8a'),
+    '2': ObjectId('67319a4d5b4a45fcc3e0eb8b'),
+    '3': ObjectId('67319a4d5b4a45fcc3e0eb8c'),
+    '4': ObjectId('67319a4d5b4a45fcc3e0eb8d')
+  }
+}
+db.employee.updateOne({"empname":"Mohana"},{$set:{"empage":"28"}});
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+db.employee.find();
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb89'),
+  empname: 'Karpagam',
+  empage: '24',
+  salary: '25000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8a'),
+  empname: 'Mohana',
+  empage: '28',
+  salary: '30000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8b'),
+  empname: 'Mani',
+  empage: '20',
+  salary: '20000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8c'),
+  empname: 'Rohini',
+  empage: '30',
+  salary: '40000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8d'),
+  empname: 'Miruna',
+  empage: '25',
+  salary: '25000'
+}
+db.employee.deleteOne({"empname":"Karpagam"});
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.employee.find();
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8a'),
+  empname: 'Mohana',
+  empage: '28',
+  salary: '30000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8b'),
+  empname: 'Mani',
+  empage: '20',
+  salary: '20000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8c'),
+  empname: 'Rohini',
+  empage: '30',
+  salary: '40000'
+}
+{
+  _id: ObjectId('67319a4d5b4a45fcc3e0eb8d'),
+  empname: 'Miruna',
+  empage: '25',
+  salary: '25000'
+}
+
+Event Registration System:
+
+_id
+6731d7cb08539136349014a7
+name
+"Mahesh"
+eventname
+"Tech Fusion"
+registration_date
+"2024-11-20"
+_id
+6731d7cb08539136349014a8
+name
+"Ashi"
+eventname
+"Hackathon"
+registration_date
+"2024-11-10"
+_id
+6731d9fab9de0d19df60cd1c
+name
+"Mani"
+eventname
+"Hackathon"
+registration_date
+"2024-11-20"
+_id
+6731db00a7d6e2083e19205c
+name
+"Karpaga"
+eventname
+"Workshop"
+registration_date
+"2024-12-20"
